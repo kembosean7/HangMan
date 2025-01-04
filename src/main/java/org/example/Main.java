@@ -9,11 +9,9 @@ public class Main {
 
     Words words = new Words();
     GameLogic game = new GameLogic();
-    List<String> data = words.wordsList();
-    String randomString = game.getWord(data);
-
-
-
-    System.out.println(randomString);
+//    List<String> data = words.wordsList();
+//    String randomString = game.getWord(data);
+//    System.out.println(randomString);
+        System.out.println(game.displayHangMan(5));
     }
 }

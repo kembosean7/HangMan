@@ -12,7 +12,7 @@ public class GameLogic {
     }
 
 
-    public String displayHangMan(Integer tries){
+    private String displayHangMan(Integer tries){
         List<String> stages = Arrays.asList(// final state: head, torso, both arms, and both legs
                 """
                    --------
