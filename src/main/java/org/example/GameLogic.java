@@ -1,4 +1,5 @@
 package org.example;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -11,8 +12,22 @@ public class GameLogic {
         return list.get(randomIndex);
     }
 
+    public static void play(String word){
+        int tries = 6;
+        boolean guessed = false;
+        List<String> guessedLetters = new ArrayList<>();
+        List<String> guessedWords = new ArrayList<>();
+        String wordCompletion = "=".repeat(word.length());
 
-    private String displayHangMan(Integer tries){
+        GameLogic gameLogic = new GameLogic();
+        System.out.println("Let's play Hangman!");
+        System.out.println(gameLogic.displayHangMan(tries));
+
+
+
+    }
+
+    public String displayHangMan(Integer tries){
         List<String> stages = Arrays.asList(// final state: head, torso, both arms, and both legs
                 """
                    --------

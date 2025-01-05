@@ -12,6 +12,6 @@ public class Main {
 //    List<String> data = words.wordsList();
 //    String randomString = game.getWord(data);
 //    System.out.println(randomString);
-        System.out.println(game.displayHangMan(5));
+        System.out.println(game.displayHangMan(6));
     }
 }
