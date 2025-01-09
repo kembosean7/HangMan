@@ -18,7 +18,7 @@ public class GameLogic {
         boolean guessed = false;
         List<Character> guessedLetters = new ArrayList<>();
         List<String> guessedWords = new ArrayList<>();
-        String wordCompletion = "_".repeat(word.length());
+        StringBuilder wordCompletion = new StringBuilder("_".repeat(word.length()));
 
         GameLogic gameLogic = new GameLogic();
         System.out.println("Let's play Hangman!");
@@ -46,14 +46,13 @@ public class GameLogic {
                 else {
                     System.out.println("Good job, " + guessedLetter + " is in the word");
                     guessedLetters.add(guessedLetter);
-                    List<String> wordAsList = Arrays.asList(wordCompletion.split(""));
+                    for(int i  = 0; i < word.length(); i++) {
+                        if (word.charAt(i) == guessedLetter) {
+                            wordCompletion.setCharAt(i, guessedLetter);
 
-                    for(int i  = 0; i < word.length(); i++){
-                        if(word.charAt(i) == guessedLetter){
-                            wordAsList.set(i,String.valueOf(guessedLetter));
-                            System.out.println(wordAsList);
                         }
-                    }
+                    }System.out.println(wordCompletion);
+
 
                 }
             }
