@@ -31,7 +31,7 @@ public class GameLogic {
         while(!guessed || tries > 0){
             System.out.println("Please guess a letter or word: ");
             String guess = myObj .nextLine().toUpperCase();
-//            guessedLetters.add(guess.charAt(0));
+
 
             if (guess.length() == 1 && Character.isAlphabetic(guess.charAt(0))) {
                 char guessedLetter = guess.charAt(0);
@@ -45,6 +45,16 @@ public class GameLogic {
                 }
                 else {
                     System.out.println("Good job, " + guessedLetter + " is in the word");
+                    guessedLetters.add(guessedLetter);
+                    List<String> wordAsList = Arrays.asList(wordCompletion.split(""));
+
+                    for(int i  = 0; i < word.length(); i++){
+                        if(word.charAt(i) == guessedLetter){
+                            wordAsList.set(i,String.valueOf(guessedLetter));
+                            System.out.println(wordAsList);
+                        }
+                    }
+
                 }
             }
 
