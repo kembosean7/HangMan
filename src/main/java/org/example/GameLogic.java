@@ -23,7 +23,6 @@ public class GameLogic {
         GameLogic gameLogic = new GameLogic();
         System.out.println("Let's play Hangman!");
         System.out.println(gameLogic.displayHangMan(tries));
-        System.out.println(wordCompletion);
         System.out.println("\n");
 
         Scanner myObj = new Scanner(System.in);
@@ -37,8 +36,9 @@ public class GameLogic {
                 char guessedLetter = guess.charAt(0);
                 if (guessedLetters.contains(guessedLetter)){
                     System.out.println("You already guessed the letter " + guessedLetter);
+
                 }
-                else if (!word.contains(String.valueOf(guessedLetter))) {
+                else if (!word.toUpperCase().contains(String.valueOf(guessedLetter))) {
                     System.out.println("Letter not in word");
                     tries--;
                     guessedLetters.add(guessedLetter);
@@ -46,13 +46,15 @@ public class GameLogic {
                 else {
                     System.out.println("Good job, " + guessedLetter + " is in the word");
                     guessedLetters.add(guessedLetter);
-                    for(int i  = 0; i < word.length(); i++) {
-                        if (word.charAt(i) == guessedLetter) {
-                            wordCompletion.setCharAt(i, guessedLetter);
+
+                    for (int i = 0; i < word.length(); i++) {
+                        if (Character.toUpperCase(word.charAt(i)) == Character.toUpperCase(guessedLetter)) {
+                            wordCompletion.setCharAt(i, word.charAt(i));
                         }
                     }
                     System.out.println(wordCompletion);
-                    if(!wordCompletion.toString().contains("-")){
+
+                    if(!wordCompletion.toString().contains("_")){
                         guessed = true;
                     }
 
