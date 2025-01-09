@@ -69,6 +69,11 @@ public class GameLogic {
                 else {
                     System.out.println("Not a valid guess");
                 }
+
+                System.out.println(gameLogic.displayHangMan(tries));
+                System.out.println(wordCompletion);
+                System.out.println("\n");
+
             }
         }
         if(guessed){
