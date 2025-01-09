@@ -30,8 +30,19 @@ public class GameLogic {
             Scanner myObj = new Scanner(System.in);
             System.out.println("Please guess a letter or word: ");
             String guess = myObj.nextLine().toUpperCase();
+//            guessedLetters.add(guess.charAt(0));
 
+            if (guess.length() == 1 && Character.isLetter(guess.charAt(0))) {
+                if (guessedLetters.contains(guess.charAt(0))){
+                    System.out.println("You already guessed the letter " + guess);
+                } else if (!word.contains(guess)) {
+                    System.out.println("Letter not in word");
+                    tries--;
+                    guessedLetters.add(guess.charAt(0));
+                }
+            }
 
+        }
 
 
 
