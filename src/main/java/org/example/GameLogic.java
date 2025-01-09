@@ -57,30 +57,36 @@ public class GameLogic {
                     }
 
                 }
-            } else if (guess.length() == word.length() && Character.isAlphabetic(guess.charAt(0))) {
-                if(guessedWords.contains(guess)){
+            }
+            else if (guess.length() == word.length() && Character.isAlphabetic(guess.charAt(0))) {
+                if (guessedWords.contains(guess)) {
                     System.out.println("You already guessed the word");
 
                 } else if (!guess.equals(word)) {
                     System.out.println(guess + " is not the word");
-                    tries --;
+                    tries--;
+                    guessedWords.add(guess);
+                } else {
+                    guessed = true;
                     guessedWords.add(guess);
                 }
-                else {
-                    System.out.println("Not a valid guess");
+            }
+
+            else{
+                System.out.println("Not a valid guess");
                 }
 
-                System.out.println(gameLogic.displayHangMan(tries));
-                System.out.println(wordCompletion);
-                System.out.println("\n");
+            System.out.println(gameLogic.displayHangMan(tries));
+            System.out.println(wordCompletion);
+            System.out.println("\n");
 
             }
-        }
+
         if(guessed){
             System.out.println("Congrats, you guessed the word, you win!");
         }
         else{
-            System.out.println("orry you ran out of tries. The word was: "+ word);
+            System.out.println("Sorry you ran out of tries. The word was: "+ word);
         }
 
 
