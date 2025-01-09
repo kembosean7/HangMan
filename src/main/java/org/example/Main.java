@@ -12,6 +12,7 @@ public class Main {
 //    List<String> data = words.wordsList();
 //    String randomString = game.getWord(data);
 //    System.out.println(randomString);
-        System.out.println(game.displayHangMan(6));
+        String word = game.getWord(words.wordsList());
+        GameLogic.play(word);
     }
 }
