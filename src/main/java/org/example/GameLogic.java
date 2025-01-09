@@ -58,6 +58,20 @@ public class GameLogic {
                     }
 
                 }
+            } else if (guess.length() == word.length() && Character.isAlphabetic(guess.charAt(0))) {
+                if(guessedWords.contains(guess)){
+                    System.out.println("You already guessed the word");
+
+                } else if (!guess.equals(word)) {
+                    System.out.println(guess + " is not the word");
+                    tries --;
+                    guessedWords.add(guess);
+
+                }
+                else {
+                    System.out.println("Not a valid guess");
+                }
+
             }
 
         }
