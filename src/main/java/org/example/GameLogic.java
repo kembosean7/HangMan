@@ -18,27 +18,33 @@ public class GameLogic {
         boolean guessed = false;
         List<Character> guessedLetters = new ArrayList<>();
         List<String> guessedWords = new ArrayList<>();
-        String wordCompletion = "=".repeat(word.length());
+        String wordCompletion = "_".repeat(word.length());
 
         GameLogic gameLogic = new GameLogic();
         System.out.println("Let's play Hangman!");
         System.out.println(gameLogic.displayHangMan(tries));
+        System.out.println(wordCompletion);
         System.out.println("\n");
 
+        Scanner myObj = new Scanner(System.in);
 
         while(!guessed || tries > 0){
-            Scanner myObj = new Scanner(System.in);
             System.out.println("Please guess a letter or word: ");
-            String guess = myObj.nextLine().toUpperCase();
+            String guess = myObj .nextLine().toUpperCase();
 //            guessedLetters.add(guess.charAt(0));
 
-            if (guess.length() == 1 && Character.isLetter(guess.charAt(0))) {
-                if (guessedLetters.contains(guess.charAt(0))){
-                    System.out.println("You already guessed the letter " + guess);
-                } else if (!word.contains(guess)) {
+            if (guess.length() == 1 && Character.isAlphabetic(guess.charAt(0))) {
+                char guessedLetter = guess.charAt(0);
+                if (guessedLetters.contains(guessedLetter)){
+                    System.out.println("You already guessed the letter " + guessedLetter);
+                }
+                else if (!word.contains(String.valueOf(guessedLetter))) {
                     System.out.println("Letter not in word");
                     tries--;
-                    guessedLetters.add(guess.charAt(0));
+                    guessedLetters.add(guessedLetter);
+                }
+                else {
+                    System.out.println("Good job, " + guessedLetter + " is in the word");
                 }
             }
 

@@ -12,7 +12,7 @@ public class Main {
 //    List<String> data = words.wordsList();
 //    String randomString = game.getWord(data);
 //    System.out.println(randomString);
-        String word = game.getWord(words.wordsList());
-        GameLogic.play(word);
+//        String word = game.getWord(words.wordsList());
+        GameLogic.play("JAVA");
     }
 }
