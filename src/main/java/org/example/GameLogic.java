@@ -28,7 +28,7 @@ public class GameLogic {
 
         Scanner myObj = new Scanner(System.in);
 
-        while(!guessed || tries > 0){
+        while(!guessed  && tries > 0){
             System.out.println("Please guess a letter or word: ");
             String guess = myObj .nextLine().toUpperCase();
 
@@ -51,8 +51,11 @@ public class GameLogic {
                             wordCompletion.setCharAt(i, guessedLetter);
 
                         }
-                    }System.out.println(wordCompletion);
-
+                    }
+                    System.out.println(wordCompletion);
+                    if(!wordCompletion.toString().contains("-")){
+                        guessed = true;
+                    }
 
                 }
             }
