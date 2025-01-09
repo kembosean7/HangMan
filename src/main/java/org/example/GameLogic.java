@@ -49,7 +49,6 @@ public class GameLogic {
                     for(int i  = 0; i < word.length(); i++) {
                         if (word.charAt(i) == guessedLetter) {
                             wordCompletion.setCharAt(i, guessedLetter);
-
                         }
                     }
                     System.out.println(wordCompletion);
@@ -66,15 +65,20 @@ public class GameLogic {
                     System.out.println(guess + " is not the word");
                     tries --;
                     guessedWords.add(guess);
-
                 }
                 else {
                     System.out.println("Not a valid guess");
                 }
-
             }
-
         }
+        if(guessed){
+            System.out.println("Congrats, you guessed the word, you win!");
+        }
+        else{
+            System.out.println("orry you ran out of tries. The word was: "+ word);
+        }
+
+
 
 
 
